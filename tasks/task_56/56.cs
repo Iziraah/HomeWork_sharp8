@@ -41,32 +41,13 @@ void GetSum()
     int Imin = 0;
     int SumMin = 0;
     int sum = 0;
-    //   for (int i = 0; i < rows; )
-    //   {
-    //       for (int j = 0; j < cols; j++)
-    //       {
-    //           SumMin += arrayResult[i, j];
-    //       }
-    //   }
-    //   Console.WriteLine(SumMin);
-     
-            for (int j = 0; j < cols; j++)
-            {
-                SumMin += arrayResult[0, j];
-            }
-        //    Console.WriteLine(SumMin);
-    
+    for (int j = 0; j < cols; j++)
+    {
+        SumMin += arrayResult[0, j];
+    }
+
     for (int i = 0; i < rows; i++)
     {
- //       if (i == 0)
- //       {
- //           for (int j = 0; j < cols; j++)
- //           {
- //               SumMin += arrayResult[0, j];
- //           }
- //           Console.WriteLine(SumMin);
- //       }
-
         for (int j = 0; j < cols; j++)
         {
             sum += arrayResult[i, j];
@@ -83,11 +64,9 @@ void GetSum()
             sum = 0;
         }
 
-       // Console.WriteLine(sum);
-      //  sum = 0;
+
     }
     Console.WriteLine();
-    Console.WriteLine(SumMin);
-    Console.WriteLine(Imin - 1);
-}
+    Console.WriteLine($"Наименьшая сумма элементов ({SumMin}) находится на {Imin + 1} строке");
+    }
 GetSum();
