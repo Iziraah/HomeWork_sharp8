@@ -41,30 +41,22 @@ PrintArray(arrayResult2);
 int[,] GetMultiplication(int[,] arrayResult, int[,] arrayResult2)
 {
     int[,] resultMatrix = new int[rows, cols];
-   // for (int i = 0; i < arr.GetLength(0); i++)
-   // {
-   //     for (int j = 0; j < arr.GetLength(1); j++)
-   //     {
-   //         arr[i, j] = (a[i,j]*b[i,j]+a[i,j+1]*b[i+1,j]+a[i,j+2]*b[i+2,j]);
-   //     }
-   // }
-   // return arr;
-   for (int i = 0; i < arrayResult.GetLength(0); i++)
+    
+    for (int i = 0; i < arrayResult.GetLength(0); i++)
+    {
+        for (int j = 0; j < arrayResult2.GetLength(1); j++)
         {
-            for (int j = 0; j < arrayResult2.GetLength(1); j++)
+            for (int k = 0; k < arrayResult.GetLength(1); k++)
             {
-                for (int k = 0; k < arrayResult2.GetLength(0); k++)
-                {
-                   // resultMatrix[i, j] += arrayResult[i, k] * arrayResult2[k, j];
-                    resultMatrix[i, j] = (arrayResult[i,j]*arrayResult2[k,j]+arrayResult[i,j+1]*arrayResult2[k+1,j]+arrayResult[i,j+2]*arrayResult2[k+2,j]);
-                    Console.Write(resultMatrix[i, j] + " ");
-                }
-               // Console.Write(resultMatrix[i, j] + " ");
-                Console.WriteLine();
+                resultMatrix[i, j] += arrayResult[i, k] * arrayResult2[k, j];
+                
             }
+            
         }
-  return resultMatrix;
+    }
+    return resultMatrix;
 }
 GetMultiplication(arrayResult, arrayResult2);
-
-
+Console.WriteLine();
+int[,] getResult = GetMultiplication(arrayResult, arrayResult2);
+PrintArray(getResult);
