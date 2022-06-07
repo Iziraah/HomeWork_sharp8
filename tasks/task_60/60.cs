@@ -20,7 +20,7 @@ int[,,] GetArray(int x, int y, int z)
             for (int k = 0; k < array.GetLength(2); k++)
             {
                 array[i, j, k] = rnd.Next(0, 11);
-                Console.Write(array[i, j, k] + "(" + i + j + k + ")" + " ;");
+                Console.Write(array[i, j, k] + "(" + i + j + k + ")" + "; ");
             }
             Console.WriteLine();
         }
