@@ -1,48 +1,47 @@
 ﻿// Заполните спирально массив 4 на 4.
 
+Console.WriteLine("Задайте размер квадратной матрицы ");
+int n = int.Parse(Console.ReadLine());
+int m = n;
 
-int rows = 4;
-int cols = 4;
-
-int[,] GetArray(int row, int col)
+int[,] GetArray(int n, int m)
 {
-    int[,] array = new int[row, col];
-    for (int i = 0; i < array.GetLength(0); i++)
+    int[,] array = new int[n, m];
+    int num = 1;
+    int circle = 0;
+    for (circle = 0; circle < n - 2; circle++)
     {
-        for (int j = 0; j < array.GetLength(1); j++)
+        for (int i = 0 + circle; i < n - circle; i++)
         {
-            array[i, j] = 0;
+            array[0 + circle, i] = num;
+            num++;
         }
+        num--;
+        for (int i = 0 + circle; i < n - circle; i++)
+        {
+            array[i, n - 1 - circle] = num;
+            num++;
+        }
+        num--;
+        for (int i = n - 1 - circle; i >= 0 + circle; i--)
+        {
+            array[n - 1 - circle, i] = num;
+            num++;
+        }
+        num--;
+        for (int i = n - 1 - circle; i >= 1 + circle; i--)
+        {
+            array[i, 0 + circle] = num;
+            num++;
+        }
+
     }
+
     return array;
 }
-int[,] arrayResult = GetArray(rows, cols);
-//Console.WriteLine("Исходный массив:");
-//PrintArray(arrayResult);
 
-int GetSpiral(int row, int col)
-{
-    int arrayResult;
-    // int[,] array = new int[row, col];
-    if (arrayResult[i, j] == 0)
-        for (int i = 0; i < arrayResult.GetLength(0); i++)
-        {
-            for (int j = 0; j < arrayResult.GetLength(1); j++)
-            {
-                for (j = 4; j < arrayResult.GetLenght(1);)
-                {
-                    for (int i = 4; i < arrayResult.GetLenght(0); i--)
-                    {
-                        arrayResult[i, j] = 0;
-                        arrayResult[i, j]++;
-                    }
-                }
 
-                //array[i, j] = 0;
-            }
-        }
-    return array;
-}
+
 
 void PrintArray(int[,] array)
 {
@@ -55,9 +54,6 @@ void PrintArray(int[,] array)
         Console.WriteLine();
     }
 }
-//int[,] arrayResult = GetArray(rows, cols);
-//Console.WriteLine("Исходный массив:");
-//PrintArray(arrayResult);
-int[,] spiral = GetSpiral(row,col);
-PrintArray(spiral);
-
+int[,] arrayResult = GetArray(n, m);
+Console.WriteLine("Исходный массив:");
+PrintArray(arrayResult);
